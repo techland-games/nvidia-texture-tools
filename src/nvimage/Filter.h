@@ -217,13 +217,20 @@ namespace nv
             return m_data[column * m_windowSize + x];
         }
 
+        __forceinline float valueAt(uint x) const {
+            return m_data[x];
+        }
+        __forceinline const float* valuesAt(uint x) const {
+            return m_data + x;
+        }
+
         void debugPrint() const;
 
     private:
         int m_windowSize;
         uint m_length;
         float m_width;
-        float * m_data;
+        float * m_data; // allocated in multiple of 4's, remaining floats are 0.0f
     };
 
 } // nv namespace
