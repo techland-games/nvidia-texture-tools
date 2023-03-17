@@ -117,18 +117,6 @@ inline float asinf_assert(const float f)
 #define asinf asinf_assert
 #endif
 
-#if NV_CC_MSVC
-NV_FORCEINLINE float log2f(float x)
-{
-    nvCheck(x >= 0);
-    return logf(x) / logf(2.0f);
-}
-NV_FORCEINLINE float exp2f(float x)
-{
-    return powf(2.0f, x);
-}
-#endif
-
 namespace nv
 {
     inline float toRadian(float degree) { return degree * (PI / 180.0f); }
@@ -248,6 +236,7 @@ namespace nv
     union Float754 {
         unsigned int raw;
         float value;
+        #pragma warning(disable : 4201)
         struct {
         #if NV_BIG_ENDIAN
             unsigned int negative:1;
@@ -273,6 +262,7 @@ namespace nv
     // FloatRGB9E5
     union Float3SE {
         uint32 v;
+        #pragma warning(disable : 4201)
         struct {
         #if NV_BIG_ENDIAN
             uint32 e : 5;
@@ -291,6 +281,7 @@ namespace nv
     // FloatR11G11B10
     union Float3PK {
         uint32 v;
+        #pragma warning(disable : 4201)
         struct {
         #if NV_BIG_ENDIAN
             uint32 ze : 5;
