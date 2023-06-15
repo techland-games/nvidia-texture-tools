@@ -2,12 +2,16 @@
 **/obj/
 **/Debug/
 **/Release/
+**/ReleaseDebugSanitizers/
 **/Debug.x64/
 **/Release.x64/
+**/ReleaseDebugSanitizers.x64/
 **/Debug.Win32/
 **/Release.Win32/
+**/ReleaseDebugSanitizers.Win32/
 **/Debug-CUDA/
 **/Release-CUDA/
+**/ReleaseDebugSanitizers-CUDA/
 *.vcxproj.user
 *.opensdf
 *.sdf
